@@ -5,12 +5,30 @@
 
 **Built by [Swarleen Bhamra](https://www.swarleen.com)**
 
-[![🚀 Live App](https://img.shields.io/badge/🚀%20Live%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](#)
+[![🚀 Live App](https://img.shields.io/badge/🚀%20Live%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://cyberquery-ai.streamlit.app/)
 [![Portfolio](https://img.shields.io/badge/🌐%20swarleen.com-1B3A6B?style=for-the-badge)](https://www.swarleen.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/swarleenbhamra/)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Swarleen)
 
 > 💡 **Right-click the Live App badge → Open in new tab**
+
+</div>
+
+---
+
+## 🚀 Try the App
+
+<div align="center">
+
+### 👇 Click below to open the live app
+
+<a href="https://cyberquery-ai.streamlit.app/" target="_blank">
+  <img src="https://img.shields.io/badge/▶%20Open%20AskMyData-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Open AskMyData"/>
+</a>
+
+**[https://cyberquery-ai.streamlit.app/](https://cyberquery-ai.streamlit.app/)**
+
+> 💡 Right-click → Open in new tab to keep this page open
 
 </div>
 
@@ -145,6 +163,7 @@ Numeric results automatically render as bar charts for quick visual interpretati
 
 **🔒 Secure by design**
 API key stored in encrypted secrets vault 
+
 ---
 
 ## 🚀 Run It Locally
@@ -156,6 +175,10 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
+Add your API key to `.streamlit/secrets.toml`:
+```toml
+ANTHROPIC_API_KEY = "your-api-key-here"
+```
 
 Open `http://localhost:8501`
 
@@ -165,6 +188,7 @@ Open `http://localhost:8501`
 
 1. Fork this repo
 2. Go to [share.streamlit.io](https://share.streamlit.io) → connect GitHub → select repo
+
 ---
 
 ## 🧰 Tech Stack
