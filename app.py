@@ -20,15 +20,15 @@ st.markdown("""
     .hero-sub { font-size: 0.95rem; color: #64748B; margin-bottom: 1.5rem; }
 
     .metric-card {
-        background: #1B3A6B;
-        border: 1px solid #162d54;
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
         border-radius: 12px;
         padding: 1rem 1.2rem;
         text-align: center;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     }
-    .metric-val { font-size: 1.8rem; font-weight: 700; color: #FFFFFF; }
-    .metric-label { font-size: 0.72rem; color: rgba(255,255,255,0.6); margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .metric-val { font-size: 1.8rem; font-weight: 700; color: #1B3A6B; }
+    .metric-label { font-size: 0.72rem; color: #94A3B8; margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.05em; }
 
     .sql-box {
         background: #F8FAFC;
@@ -245,13 +245,13 @@ total_impact = df['Financial_Impact_CAD'].sum()
 with col1:
     st.markdown(f'<div class="metric-card"><div class="metric-val">{total}</div><div class="metric-label">Total Incidents</div></div>', unsafe_allow_html=True)
 with col2:
-    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#FF8080;">{critical}</div><div class="metric-label">Critical</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#E63946;">{critical}</div><div class="metric-label">Critical</div></div>', unsafe_allow_html=True)
 with col3:
-    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#FFD580;">{open_inc}</div><div class="metric-label">Open</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#F4A261;">{open_inc}</div><div class="metric-label">Open</div></div>', unsafe_allow_html=True)
 with col4:
-    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#FF8080;">{sla_breached}</div><div class="metric-label">SLA Breached</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#E63946;">{sla_breached}</div><div class="metric-label">SLA Breached</div></div>', unsafe_allow_html=True)
 with col5:
-    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#7FFFEF;">${total_impact:,.0f}</div><div class="metric-label">Total Impact (CAD)</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#2A9D8F;">${total_impact:,.0f}</div><div class="metric-label">Total Impact (CAD)</div></div>', unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
 st.markdown('<div class="section-label">Ask a question</div>', unsafe_allow_html=True)
