@@ -198,11 +198,17 @@ EXAMPLE_QUESTIONS = [
     "Which attack vector causes the most financial damage?",
     "How many incidents breached their SLA?",
     "What are the top 3 control gaps by incident count?",
-    "Show me all ransomware incidents ",
+    "Show me all ransomware incidents in Finance",
     "Which region has the highest critical incidents?",
     "What percentage of incidents are recurring?",
     "Show total financial impact by severity",
 ]
+
+if "question_input" not in st.session_state:
+    st.session_state.question_input = ""
+
+def set_example(q):
+    st.session_state.question_input = q
 
 with st.sidebar:
     st.markdown("### 🔍 AskMyData")
@@ -258,29 +264,25 @@ st.markdown('<div class="section-label">Ask a question</div>', unsafe_allow_html
 
 st.markdown('<div class="section-label" style="margin-bottom:0.3rem;">Or try one of these</div>', unsafe_allow_html=True)
 
-selected_example = None
 cols = st.columns(5)
 for i, example in enumerate(EXAMPLE_QUESTIONS[:5]):
     with cols[i]:
         st.markdown('<div class="example-btn">', unsafe_allow_html=True)
-        if st.button(example, key=f"ex_{i}", use_container_width=True):
-            selected_example = example
+        st.button(example, key=f"ex_{i}", use_container_width=True, on_click=set_example, args=(example,))
         st.markdown('</div>', unsafe_allow_html=True)
 
 cols2 = st.columns(5)
 for i, example in enumerate(EXAMPLE_QUESTIONS[5:]):
     with cols2[i]:
         st.markdown('<div class="example-btn">', unsafe_allow_html=True)
-        if st.button(example, key=f"ex2_{i}", use_container_width=True):
-            selected_example = example
+        st.button(example, key=f"ex2_{i}", use_container_width=True, on_click=set_example, args=(example,))
         st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-question = selected_example if selected_example else ""
 user_question = st.text_input(
     "Your question",
-    value=question,
+    key="question_input",
     placeholder="e.g. Which department had the most critical incidents last quarter?",
     label_visibility="collapsed"
 )
