@@ -20,19 +20,19 @@ st.markdown("""
     .hero-sub { font-size: 0.95rem; color: #64748B; margin-bottom: 1.5rem; }
 
     .metric-card {
-        background: #FFFFFF;
-        border: 1px solid #E2E8F0;
+        background: #1B3A6B;
+        border: 1px solid #162d54;
         border-radius: 12px;
         padding: 1rem 1.2rem;
         text-align: center;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12);
     }
-    .metric-val { font-size: 1.8rem; font-weight: 700; color: #1B3A6B; }
-    .metric-label { font-size: 0.72rem; color: #94A3B8; margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .metric-val { font-size: 1.8rem; font-weight: 700; color: #FFFFFF; }
+    .metric-label { font-size: 0.72rem; color: rgba(255,255,255,0.6); margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.05em; }
 
     .sql-box {
         background: #F8FAFC;
-        border: 1px solid #E2E8F0;
+        border: 1px solid #162d54;
         border-left: 4px solid #1B3A6B;
         border-radius: 8px;
         padding: 1rem 1.2rem;
@@ -87,17 +87,21 @@ st.markdown("""
         border-radius: 8px !important;
         padding: 0.5rem 2rem !important;
     }
-    .stButton > button:hover { background-color: #162d54 !important; }
+    .stButton > button:hover { background-color: #162d54 !important; color: #FFFFFF !important; }
+    .stButton > button span { color: #FFFFFF !important; }
+    .stButton > button p { color: #FFFFFF !important; }
     .example-btn button {
-        background-color: #FFFFFF !important;
-        color: #1B3A6B !important;
-        border: 1px solid #CBD5E1 !important;
+        background-color: #1B3A6B !important;
+        color: #FFFFFF !important;
+        border: 1px solid #1B3A6B !important;
         font-size: 0.78rem !important;
         padding: 0.3rem 0.6rem !important;
         border-radius: 20px !important;
         font-weight: 400 !important;
     }
-    .example-btn button:hover { background-color: #EFF6FF !important; border-color: #1B3A6B !important; }
+    .example-btn button:hover { background-color: #162d54 !important; border-color: #162d54 !important; color: #FFFFFF !important; }
+    .example-btn button span { color: #FFFFFF !important; }
+    .example-btn button p { color: #FFFFFF !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -214,7 +218,7 @@ with st.sidebar:
 
     st.divider()
     st.markdown("<p style='color:#94A3B8;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;'>Dataset</p>", unsafe_allow_html=True)
-    st.markdown("<p style='color:#475569;font-size:0.82rem;'>200 cybersecurity incidents<br>18 dimensions · Jan 2024 – Apr 2025</p>", unsafe_allow_html=True)
+    st.markdown("<p style='color:#334155;font-size:0.82rem;'>200 cybersecurity incidents<br>18 dimensions · Jan 2024 – Apr 2025</p>", unsafe_allow_html=True)
 
     st.divider()
     st.markdown("<p style='color:#94A3B8;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;'>Try asking about</p>", unsafe_allow_html=True)
@@ -241,13 +245,13 @@ total_impact = df['Financial_Impact_CAD'].sum()
 with col1:
     st.markdown(f'<div class="metric-card"><div class="metric-val">{total}</div><div class="metric-label">Total Incidents</div></div>', unsafe_allow_html=True)
 with col2:
-    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#E63946;">{critical}</div><div class="metric-label">Critical</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#FF8080;">{critical}</div><div class="metric-label">Critical</div></div>', unsafe_allow_html=True)
 with col3:
-    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#F4A261;">{open_inc}</div><div class="metric-label">Open</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#FFD580;">{open_inc}</div><div class="metric-label">Open</div></div>', unsafe_allow_html=True)
 with col4:
-    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#E63946;">{sla_breached}</div><div class="metric-label">SLA Breached</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#FF8080;">{sla_breached}</div><div class="metric-label">SLA Breached</div></div>', unsafe_allow_html=True)
 with col5:
-    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#2A9D8F;">${total_impact:,.0f}</div><div class="metric-label">Total Impact (CAD)</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#7FFFEF;">${total_impact:,.0f}</div><div class="metric-label">Total Impact (CAD)</div></div>', unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
 st.markdown('<div class="section-label">Ask a question</div>', unsafe_allow_html=True)
