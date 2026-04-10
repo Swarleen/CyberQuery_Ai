@@ -19,16 +19,7 @@ st.markdown("""
     .hero-title { font-size: 2rem; font-weight: 700; color: #1B3A6B; margin-bottom: 0.2rem; }
     .hero-sub { font-size: 0.95rem; color: #64748B; margin-bottom: 1.5rem; }
 
-    .metric-card {
-        background: #FFFFFF;
-        border: 1px solid #E2E8F0;
-        border-radius: 12px;
-        padding: 1rem 1.2rem;
-        text-align: center;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-    }
-    .metric-val { font-size: 1.8rem; font-weight: 700; color: #1B3A6B; }
-    .metric-label { font-size: 0.72rem; color: #94A3B8; margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
 
     .sql-box {
         background: #F8FAFC;
@@ -237,28 +228,25 @@ schema = get_schema()
 st.markdown('<div class="hero-title">🔍 AskMyData</div>', unsafe_allow_html=True)
 st.markdown('<div class="hero-sub">Ask any question about your cybersecurity incidents in plain English. AI writes the SQL, runs it, and explains what it found.</div>', unsafe_allow_html=True)
 
-col1, col2, col3, col4, col5 = st.columns(5)
-total = len(df)
-critical = len(df[df['Severity'] == 'Critical'])
-open_inc = len(df[df['Status'] == 'Open'])
-sla_breached = len(df[df['SLA_Met'] == 'No'])
-total_impact = df['Financial_Impact_CAD'].sum()
-
-with col1:
-    st.markdown(f'<div class="metric-card"><div class="metric-val">{total}</div><div class="metric-label">Total Incidents</div></div>', unsafe_allow_html=True)
-with col2:
-    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#E63946;">{critical}</div><div class="metric-label">Critical</div></div>', unsafe_allow_html=True)
-with col3:
-    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#F4A261;">{open_inc}</div><div class="metric-label">Open</div></div>', unsafe_allow_html=True)
-with col4:
-    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#E63946;">{sla_breached}</div><div class="metric-label">SLA Breached</div></div>', unsafe_allow_html=True)
-with col5:
-    st.markdown(f'<div class="metric-card"><div class="metric-val" style="color:#2A9D8F;">${total_impact:,.0f}</div><div class="metric-label">Total Impact (CAD)</div></div>', unsafe_allow_html=True)
+st.markdown("""
+<div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:12px;padding:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.06);margin-bottom:0.5rem;">
+    <p style="font-size:0.72rem;font-weight:600;color:#94A3B8;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.75rem;">📊 Live Dashboard — Cybersecurity Incident Tracker</p>
+    <iframe 
+        title="CyberSecurity Dashboard" 
+        width="100%" 
+        height="480" 
+        src="https://app.powerbi.com/view?r=eyJrIjoiMDgyNTA5NmYtOGU3OC00ZTMzLTk2ZGItNDVkYTBhNGFlYTk1IiwidCI6IjMyMWIxNDA4LTIxZjAtNDE0My1hMzkwLTNiNjIwMmU2NWUxZiJ9" 
+        frameborder="0" 
+        allowFullScreen="true"
+        style="border-radius:8px;border:none;">
+    </iframe>
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
-st.markdown('<div class="section-label">Ask a question</div>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:1.15rem;font-weight:700;color:#1B3A6B;margin-bottom:0.25rem;">🔍 Ask a question</p>', unsafe_allow_html=True)
 
-st.markdown('<div class="section-label" style="margin-bottom:0.3rem;">Or try one of these</div>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:0.85rem;font-weight:600;color:#1B3A6B;margin-bottom:0.4rem;">Or try one of these</p>', unsafe_allow_html=True)
 
 cols = st.columns(5)
 for i, example in enumerate(EXAMPLE_QUESTIONS[:5]):
