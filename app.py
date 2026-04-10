@@ -209,18 +209,94 @@ with st.sidebar:
     # API key loaded from Streamlit secrets — not exposed to users
     api_key = st.secrets.get("ANTHROPIC_API_KEY", "")
 
-    st.divider()
-    st.markdown("<p style='color:#94A3B8;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;'>Dataset</p>", unsafe_allow_html=True)
-    st.markdown("<p style='color:#334155;font-size:0.82rem;'>200 cybersecurity incidents<br>18 dimensions · Jan 2024 – Apr 2025</p>", unsafe_allow_html=True)
+    # Dataset info
+    st.markdown("<p style='color:#94A3B8;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.4rem;'>Dataset</p>", unsafe_allow_html=True)
+    st.markdown("""
+    <div style='background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:0.7rem 0.9rem;margin-bottom:0.5rem;'>
+        <p style='color:#1B3A6B;font-size:0.85rem;font-weight:600;margin:0 0 0.2rem;'>🛡️ Cybersecurity Incidents</p>
+        <p style='color:#64748B;font-size:0.78rem;margin:0;'>200 incidents · 18 dimensions</p>
+        <p style='color:#64748B;font-size:0.78rem;margin:0;'>Jan 2024 – Apr 2025</p>
+    </div>
+    """, unsafe_allow_html=True)
 
     st.divider()
-    st.markdown("<p style='color:#94A3B8;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;'>Try asking about</p>", unsafe_allow_html=True)
-    topics = ["Severity trends", "SLA performance", "Financial impact", "Attack vectors", "Control gaps", "Department risk"]
-    for t in topics:
-        st.markdown(f"<p style='color:#1B3A6B;font-size:0.82rem;margin:0;'>→ {t}</p>", unsafe_allow_html=True)
+
+    # Try asking about
+    st.markdown("<p style='color:#94A3B8;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.4rem;'>Try asking about</p>", unsafe_allow_html=True)
+    topics = [("🔴", "Severity trends"), ("⏱️", "SLA performance"), ("💰", "Financial impact"), ("🎯", "Attack vectors"), ("⚠️", "Control gaps"), ("🏢", "Department risk")]
+    for icon, t in topics:
+        st.markdown(f"<p style='color:#1B3A6B;font-size:0.82rem;margin:2px 0;'>{icon} {t}</p>", unsafe_allow_html=True)
 
     st.divider()
-    st.markdown("<p style='color:#94A3B8;font-size:0.75rem;'>Built by <a href='https://www.swarleen.com' style='color:#1B3A6B;font-weight:600;'>Swarleen Bhamra</a></p>", unsafe_allow_html=True)
+
+    # Portfolio card
+    st.markdown("<p style='color:#94A3B8;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.4rem;'>Built by</p>", unsafe_allow_html=True)
+    st.markdown("""
+    <div style='background:#1B3A6B;border-radius:10px;padding:0.9rem 1rem;margin-bottom:0.5rem;'>
+        <p style='color:#FFFFFF;font-size:1rem;font-weight:700;margin:0 0 0.1rem;'>Swarleen Bhamra</p>
+        <p style='color:rgba(255,255,255,0.65);font-size:0.78rem;margin:0 0 0.6rem;'>Business Analyst · Data Analyst</p>
+        <p style='color:rgba(255,255,255,0.5);font-size:0.72rem;margin:0;'>📍 Toronto, ON · Open to Work</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # swarleen.com card
+    st.markdown("""
+    <a href='https://www.swarleen.com' target='_blank' style='text-decoration:none;'>
+        <div style='background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;padding:0.75rem 1rem;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.6rem;cursor:pointer;transition:all 0.2s;'>
+            <span style='font-size:1.2rem;'>🌐</span>
+            <div>
+                <p style='color:#1B3A6B;font-size:0.85rem;font-weight:600;margin:0;'>swarleen.com</p>
+                <p style='color:#94A3B8;font-size:0.72rem;margin:0;'>Portfolio & projects</p>
+            </div>
+            <span style='color:#94A3B8;font-size:0.8rem;margin-left:auto;'>→</span>
+        </div>
+    </a>
+    """, unsafe_allow_html=True)
+
+    # LinkedIn card
+    st.markdown("""
+    <a href='https://www.linkedin.com/in/swarleenbhamra/' target='_blank' style='text-decoration:none;'>
+        <div style='background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;padding:0.75rem 1rem;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.6rem;'>
+            <span style='font-size:1.2rem;'>💼</span>
+            <div>
+                <p style='color:#0077B5;font-size:0.85rem;font-weight:600;margin:0;'>LinkedIn</p>
+                <p style='color:#94A3B8;font-size:0.72rem;margin:0;'>Connect with Swarleen</p>
+            </div>
+            <span style='color:#94A3B8;font-size:0.8rem;margin-left:auto;'>→</span>
+        </div>
+    </a>
+    """, unsafe_allow_html=True)
+
+    # GitHub Power BI portfolio card
+    st.markdown("""
+    <a href='https://github.com/Swarleen/PowerBI-Portfolio' target='_blank' style='text-decoration:none;'>
+        <div style='background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;padding:0.75rem 1rem;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.6rem;'>
+            <span style='font-size:1.2rem;'>📊</span>
+            <div>
+                <p style='color:#1B3A6B;font-size:0.85rem;font-weight:600;margin:0;'>Power BI Portfolio</p>
+                <p style='color:#94A3B8;font-size:0.72rem;margin:0;'>More dashboards on GitHub</p>
+            </div>
+            <span style='color:#94A3B8;font-size:0.8rem;margin-left:auto;'>→</span>
+        </div>
+    </a>
+    """, unsafe_allow_html=True)
+
+    # GitHub profile card
+    st.markdown("""
+    <a href='https://github.com/Swarleen' target='_blank' style='text-decoration:none;'>
+        <div style='background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;padding:0.75rem 1rem;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.6rem;'>
+            <span style='font-size:1.2rem;'>🐙</span>
+            <div>
+                <p style='color:#1B3A6B;font-size:0.85rem;font-weight:600;margin:0;'>GitHub</p>
+                <p style='color:#94A3B8;font-size:0.72rem;margin:0;'>All projects & source code</p>
+            </div>
+            <span style='color:#94A3B8;font-size:0.8rem;margin-left:auto;'>→</span>
+        </div>
+    </a>
+    """, unsafe_allow_html=True)
+
+    st.divider()
+    st.markdown("<p style='color:#CBD5E1;font-size:0.7rem;text-align:center;'>Powered by Claude AI · Anthropic</p>", unsafe_allow_html=True)
 
 conn, df = load_data_to_sqlite()
 schema = get_schema()
