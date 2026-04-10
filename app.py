@@ -198,7 +198,7 @@ EXAMPLE_QUESTIONS = [
     "Which attack vector causes the most financial damage?",
     "How many incidents breached their SLA?",
     "What are the top 3 control gaps by incident count?",
-    "Show me all ransomware incidents in Finance",
+    "Show me all ransomware incidents ",
     "Which region has the highest critical incidents?",
     "What percentage of incidents are recurring?",
     "Show total financial impact by severity",
