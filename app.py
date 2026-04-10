@@ -215,12 +215,8 @@ with st.sidebar:
     st.markdown("<p style='color:#64748B;font-size:0.85rem;'>Natural Language → SQL → Insights</p>", unsafe_allow_html=True)
     st.divider()
 
-    api_key = st.text_input(
-        "Anthropic API Key",
-        type="password",
-        placeholder="sk-ant-...",
-        help="Get your free API key at console.anthropic.com"
-    )
+    # API key loaded from Streamlit secrets — not exposed to users
+    api_key = st.secrets.get("ANTHROPIC_API_KEY", "")
 
     st.divider()
     st.markdown("<p style='color:#94A3B8;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;'>Dataset</p>", unsafe_allow_html=True)
@@ -291,7 +287,7 @@ run_query = st.button("🔍  Run Query")
 
 if run_query and user_question:
     if not api_key:
-        st.error("⚠️ Please enter your Anthropic API key in the sidebar to continue.")
+        st.error("⚠️ API key not configured. Please contact the app owner.")
     else:
         try:
             client = anthropic.Anthropic(api_key=api_key)
